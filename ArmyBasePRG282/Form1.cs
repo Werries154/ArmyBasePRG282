@@ -414,6 +414,16 @@ namespace ArmyBasePRG282
 
         private void pbPlane_Move(object sender, EventArgs e)
         {
+            pbBarracks.Refresh();
+            pbCommstower.Refresh();
+            pbAircrafthangar.Refresh();
+            pbArmory.Refresh();
+            pbDiningarea.Refresh();
+            pbGym.Refresh();
+            pbHeadquarters.Refresh();
+            pbMedbay.Refresh();
+            pbAircraftrunway.Refresh();
+            pbVehiclebay.Refresh();
             if (!busy)
             {
                 foreach (PictureBox obstacle in obstaclestoavoid)
