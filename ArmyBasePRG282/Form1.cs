@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ArmyBasePRG282
 {
-    public partial class StartForm : Form
+    public partial class StartForm: Form
     {
         bool bremove = false;
         bool busy = false;
@@ -21,8 +21,10 @@ namespace ArmyBasePRG282
         List<PictureBox> tankobstacles = new List<PictureBox>();
         List<PictureBox> allobstacles = new List<PictureBox>();
         List<Plane> allplanes = new List<Plane>();
+        List<Obstacle> allObstacles = new List<Obstacle>();
+        List<EnemyBuilding> AllEnemyBuildings = new List<EnemyBuilding>();
         Datahandler dh = new Datahandler();
-
+        Plane chosenplane = new Plane();
 
         public StartForm()
         {
@@ -33,10 +35,9 @@ namespace ArmyBasePRG282
         {
             InitializePboxes();
             allplanes = dh.GetPlanes();
-            foreach (Plane thisplane in allplanes)
-            {
-                MessageBox.Show(thisplane.ToString());
-            }
+            allObstacles = dh.GetObstacles();
+            AllEnemyBuildings = dh.GetBuildings();
+            
 
         }
 
