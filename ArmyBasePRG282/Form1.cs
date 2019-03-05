@@ -117,14 +117,24 @@ namespace ArmyBasePRG282
 
         private void addScoutTowerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Scout1.Visible == false)
+            try
             {
-                Scout1.Visible = true;
+                if (Scout1.Visible == false)
+                {
+                    Scout1.Visible = true;
+                }
+                else
+                {
+                    throw new CustomException("Only 1 scout can be placed at a time");
+                    
+                }
             }
-            else
+            catch (CustomException ce)
             {
-                MessageBox.Show("Only 1 scout can be placed at a time");
+
+                MessageBox.Show(ce.Message, "Placement error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+            
 
         }
 
@@ -272,41 +282,60 @@ namespace ArmyBasePRG282
         private void addSniperToolStripMenuItem_Click(object sender, EventArgs e)
         {
             List<PictureBox> invisible = new List<PictureBox>();
-            foreach (PictureBox pbinstance in sniperobstacles)
+            try
             {
-                if (!pbinstance.Visible)
+                foreach (PictureBox pbinstance in sniperobstacles)
                 {
-                    invisible.Add(pbinstance);
+                    if (!pbinstance.Visible)
+                    {
+                        invisible.Add(pbinstance);
+                    }
+                }
+                if (invisible.Count != 0)
+                {
+                    invisible[0].Visible = true;
+                }
+                else
+                {
+                    throw new CustomException("Only 4 Sniper obstacles can be placed at a time");
+
                 }
             }
-            if (invisible.Count != 0)
+            catch (CustomException ce)
             {
-                invisible[0].Visible = true;
+
+                MessageBox.Show(ce.Message, "Number of sniper obstacles to be placed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else
-            {
-                MessageBox.Show("Only 4 Sniper obstacles can be placed at a time");
-            }
+           
         }
 
         private void addAAToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!AA1.Visible && !AA2.Visible)
+            try
             {
-                AA1.Visible = true;
-            }
-            else
-            {
-
-                if (AA1.Visible && AA2.Visible)
-                {
-                    MessageBox.Show("Only 2 AA obstacles can be placed at a time");
-                }
-                if (AA1.Visible || AA2.Visible)
+                if (!AA1.Visible && !AA2.Visible)
                 {
                     AA1.Visible = true;
-                    AA2.Visible = true;
                 }
+                else
+                {
+
+                    if (AA1.Visible && AA2.Visible)
+                    {
+                        throw new CustomException("Only 2 AA obstacles can be placed at a time");
+
+                    }
+                    if (AA1.Visible || AA2.Visible)
+                    {
+                        AA1.Visible = true;
+                        AA2.Visible = true;
+                    }
+
+                }
+            }
+            catch (CustomException ce)
+            {
+                MessageBox.Show(ce.Message, "Number of AA obstacles to be placed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
 
@@ -316,20 +345,29 @@ namespace ArmyBasePRG282
         private void addMGPitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             List<PictureBox> invisible = new List<PictureBox>();
-            foreach (PictureBox pbinstance in mgobstacles)
+            try
             {
-                if (!pbinstance.Visible)
+                foreach (PictureBox pbinstance in mgobstacles)
                 {
-                    invisible.Add(pbinstance);
+                    if (!pbinstance.Visible)
+                    {
+                        invisible.Add(pbinstance);
+                    }
+                }
+                if (invisible.Count != 0)
+                {
+                    invisible[0].Visible = true;
+                }
+                else
+                {
+                    throw new CustomException("Only 3 MG pit obstacles can be placed at a time");
+
                 }
             }
-            if (invisible.Count != 0)
+            catch (CustomException ce)
             {
-                invisible[0].Visible = true;
-            }
-            else
-            {
-                MessageBox.Show("Only 3 MG pit obstacles can be placed at a time");
+
+                MessageBox.Show(ce.Message, "Number of MG pit ostacles to be placed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }
@@ -337,20 +375,29 @@ namespace ArmyBasePRG282
         private void addA1AbrahamsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             List<PictureBox> invisible = new List<PictureBox>();
-            foreach (PictureBox pbinstance in tankobstacles)
+            try
             {
-                if (!pbinstance.Visible)
+                foreach (PictureBox pbinstance in tankobstacles)
                 {
-                    invisible.Add(pbinstance);
+                    if (!pbinstance.Visible)
+                    {
+                        invisible.Add(pbinstance);
+                    }
+                }
+                if (invisible.Count != 0)
+                {
+                    invisible[0].Visible = true;
+                }
+                else
+                {
+                    throw new CustomException("Only 5 tank obstacles can be placed at a time");
+
                 }
             }
-            if (invisible.Count != 0)
+            catch (CustomException ce)
             {
-                invisible[0].Visible = true;
-            }
-            else
-            {
-                MessageBox.Show("Only 5 tank obstacles can be placed at a time");
+
+                MessageBox.Show(ce.Message, "Number of tank obsacles to be placed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -432,6 +479,30 @@ namespace ArmyBasePRG282
             }
         }
 
+        private void f15JetcraftToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pbPlane.Image = ArmyBasePRG282.Properties.Resources.G4_supergaleb_let;
+        }
+
+        private void aC130GunshipToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pbPlane.Image = ArmyBasePRG282.Properties.Resources.giphy;
+        }
+
+        private void mH53PaveLowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pbPlane.Image = ArmyBasePRG282.Properties.Resources.japanese_fighter_bomber;
+        }
+
+        private void u2ReconPlaneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pbPlane.Image = ArmyBasePRG282.Properties.Resources.animated_aeroplane_image_0057;
+        }
+
+        private void b52ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pbPlane.Image = ArmyBasePRG282.Properties.Resources.giphyv;
+        }
     }
 }
 

@@ -108,10 +108,12 @@
             // 
             this.pbPlane.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.pbPlane.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbPlane.Image = ((System.Drawing.Image)(resources.GetObject("pbPlane.Image")));
             this.pbPlane.Location = new System.Drawing.Point(37, 298);
             this.pbPlane.Margin = new System.Windows.Forms.Padding(0);
             this.pbPlane.Name = "pbPlane";
-            this.pbPlane.Size = new System.Drawing.Size(10, 10);
+            this.pbPlane.Size = new System.Drawing.Size(54, 34);
+            this.pbPlane.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPlane.TabIndex = 10;
             this.pbPlane.TabStop = false;
             this.pbPlane.Move += new System.EventHandler(this.pbPlane_Move);
@@ -265,33 +267,43 @@
             // 
             // f15JetcraftToolStripMenuItem
             // 
+            this.f15JetcraftToolStripMenuItem.Image = global::ArmyBasePRG282.Properties.Resources.G4_supergaleb_let;
             this.f15JetcraftToolStripMenuItem.Name = "f15JetcraftToolStripMenuItem";
-            this.f15JetcraftToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.f15JetcraftToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.f15JetcraftToolStripMenuItem.Text = "F15 Jetcraft";
+            this.f15JetcraftToolStripMenuItem.Click += new System.EventHandler(this.f15JetcraftToolStripMenuItem_Click);
             // 
             // aC130GunshipToolStripMenuItem
             // 
+            this.aC130GunshipToolStripMenuItem.Image = global::ArmyBasePRG282.Properties.Resources.giphy;
             this.aC130GunshipToolStripMenuItem.Name = "aC130GunshipToolStripMenuItem";
-            this.aC130GunshipToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.aC130GunshipToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aC130GunshipToolStripMenuItem.Text = "AC-130 Gunship";
+            this.aC130GunshipToolStripMenuItem.Click += new System.EventHandler(this.aC130GunshipToolStripMenuItem_Click);
             // 
             // mH53PaveLowToolStripMenuItem
             // 
+            this.mH53PaveLowToolStripMenuItem.Image = global::ArmyBasePRG282.Properties.Resources.japanese_fighter_bomber;
             this.mH53PaveLowToolStripMenuItem.Name = "mH53PaveLowToolStripMenuItem";
-            this.mH53PaveLowToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.mH53PaveLowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.mH53PaveLowToolStripMenuItem.Text = "MH-53 Pave Low";
+            this.mH53PaveLowToolStripMenuItem.Click += new System.EventHandler(this.mH53PaveLowToolStripMenuItem_Click);
             // 
             // u2ReconPlaneToolStripMenuItem
             // 
+            this.u2ReconPlaneToolStripMenuItem.Image = global::ArmyBasePRG282.Properties.Resources.animated_aeroplane_image_0057;
             this.u2ReconPlaneToolStripMenuItem.Name = "u2ReconPlaneToolStripMenuItem";
-            this.u2ReconPlaneToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.u2ReconPlaneToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.u2ReconPlaneToolStripMenuItem.Text = "U-2 Recon Plane";
+            this.u2ReconPlaneToolStripMenuItem.Click += new System.EventHandler(this.u2ReconPlaneToolStripMenuItem_Click);
             // 
             // b52ToolStripMenuItem
             // 
+            this.b52ToolStripMenuItem.Image = global::ArmyBasePRG282.Properties.Resources.giphyv;
             this.b52ToolStripMenuItem.Name = "b52ToolStripMenuItem";
-            this.b52ToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.b52ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.b52ToolStripMenuItem.Text = "B52 Carpet Bomber";
+            this.b52ToolStripMenuItem.Click += new System.EventHandler(this.b52ToolStripMenuItem_Click);
             // 
             // addOstacleToolStripMenuItem
             // 
