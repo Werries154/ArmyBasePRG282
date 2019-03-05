@@ -37,6 +37,7 @@ namespace ArmyBasePRG282
             {
                 MessageBox.Show(thisplane.ToString());
             }
+            pbArmory.Visible = false;
 
         }
 

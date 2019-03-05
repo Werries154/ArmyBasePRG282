@@ -75,6 +75,7 @@
             this.AA2 = new System.Windows.Forms.PictureBox();
             this.Tank5 = new System.Windows.Forms.PictureBox();
             this.Tank4 = new System.Windows.Forms.PictureBox();
+            this.lblAltitude = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlane)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBarracks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbVehiclebay)).BeginInit();
@@ -564,6 +565,15 @@
             this.Tank4.TabIndex = 28;
             this.Tank4.TabStop = false;
             // 
+            // lblAltitude
+            // 
+            this.lblAltitude.AutoSize = true;
+            this.lblAltitude.Location = new System.Drawing.Point(607, 145);
+            this.lblAltitude.Name = "lblAltitude";
+            this.lblAltitude.Size = new System.Drawing.Size(35, 13);
+            this.lblAltitude.TabIndex = 29;
+            this.lblAltitude.Text = "label1";
+            // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -571,6 +581,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.lblAltitude);
             this.Controls.Add(this.Tank4);
             this.Controls.Add(this.pbPlane);
             this.Controls.Add(this.Tank5);
@@ -684,6 +695,7 @@
         private System.Windows.Forms.PictureBox AA2;
         private System.Windows.Forms.PictureBox Tank5;
         private System.Windows.Forms.PictureBox Tank4;
+        private System.Windows.Forms.Label lblAltitude;
     }
 }
 
