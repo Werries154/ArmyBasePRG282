@@ -38,6 +38,16 @@ namespace ArmyBasePRG282
             allplanes = dh.GetPlanes();
             allObstacles = dh.GetObstacles();
             AllEnemyBuildings = dh.GetBuildings();
+            pbArmory.Visible = false;
+            pbAircraftrunway.Visible = false;
+            pbAircrafthangar.Visible = false;
+            pbBarracks.Visible = false;
+            pbCommstower.Visible = false;
+            pbDiningarea.Visible = false;
+            pbGym.Visible = false;
+            pbHeadquarters.Visible = false;
+            pbMedbay.Visible = false;
+            pbVehiclebay.Visible = false;
 
 
         }
@@ -405,7 +415,7 @@ namespace ArmyBasePRG282
         private void StartSimulationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MoveNext();
-
+            
 
 
 
@@ -495,6 +505,23 @@ namespace ArmyBasePRG282
                         {
                             barrived = true;
                         }
+                    }
+                    //Here is the code for dodging
+                    if (pbPlane.Bounds.IntersectsWith(pbAircrafthangar.Bounds) || pbPlane.Bounds.IntersectsWith(pbAircraftrunway.Bounds) || pbPlane.Bounds.IntersectsWith(pbArmory.Bounds) || pbPlane.Bounds.IntersectsWith(pbBarracks.Bounds) || pbPlane.Bounds.IntersectsWith(pbCommstower.Bounds))
+                    {
+                        pbAircrafthangar.Visible = true;
+                        pbAircraftrunway.Visible = true;
+                        pbArmory.Visible = true;
+                        pbBarracks.Visible = true;
+                        pbCommstower.Visible = true;
+                    }
+                    if (pbPlane.Bounds.IntersectsWith(pbDiningarea.Bounds) || pbPlane.Bounds.IntersectsWith(pbGym.Bounds) || pbPlane.Bounds.IntersectsWith(pbHeadquarters.Bounds) || pbPlane.Bounds.IntersectsWith(pbMedbay.Bounds) || pbPlane.Bounds.IntersectsWith(pbVehiclebay.Bounds))
+                    {
+                        pbDiningarea.Visible = true;
+                        pbGym.Visible = true;
+                        pbHeadquarters.Visible = true;
+                        pbMedbay.Visible = true;
+                        pbVehiclebay.Visible = true;
                     }
                 }
             }

@@ -107,7 +107,7 @@
             // 
             // pbPlane
             // 
-            this.pbPlane.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pbPlane.BackColor = System.Drawing.Color.Transparent;
             this.pbPlane.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbPlane.Image = ((System.Drawing.Image)(resources.GetObject("pbPlane.Image")));
             this.pbPlane.Location = new System.Drawing.Point(37, 298);
