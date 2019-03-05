@@ -424,6 +424,7 @@ namespace ArmyBasePRG282
 
         private void pbPlane_Move(object sender, EventArgs e)
         {
+            
             pbBarracks.Refresh();
             pbCommstower.Refresh();
             pbAircrafthangar.Refresh();
@@ -434,6 +435,14 @@ namespace ArmyBasePRG282
             pbMedbay.Refresh();
             pbAircraftrunway.Refresh();
             pbVehiclebay.Refresh();
+           if(chosenplane.Currentaltitude < chosenplane.Maxaltitude)
+            {
+                chosenplane.Currentaltitude = chosenplane.Currentaltitude+ 1;
+                
+            }
+            lblAltitude.Text = chosenplane.Currentaltitude.ToString();
+            lblAltitude.Refresh();
+
             if (!busy)
             {
                 foreach (PictureBox obstacle in obstaclestoavoid)
@@ -531,26 +540,31 @@ namespace ArmyBasePRG282
         private void f15JetcraftToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pbPlane.Image = ArmyBasePRG282.Properties.Resources.G4_supergaleb_let;
+            chosenplane = allplanes[0];
         }
 
         private void aC130GunshipToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pbPlane.Image = ArmyBasePRG282.Properties.Resources.giphy;
+            chosenplane = allplanes[3];
         }
 
         private void mH53PaveLowToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pbPlane.Image = ArmyBasePRG282.Properties.Resources.japanese_fighter_bomber;
+            chosenplane = allplanes[4];
         }
 
         private void u2ReconPlaneToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pbPlane.Image = ArmyBasePRG282.Properties.Resources.animated_aeroplane_image_0057;
+            chosenplane = allplanes[1];
         }
 
         private void b52ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pbPlane.Image = ArmyBasePRG282.Properties.Resources.giphyv;
+            chosenplane = allplanes[2];
         }
         private void GoBack()
         {

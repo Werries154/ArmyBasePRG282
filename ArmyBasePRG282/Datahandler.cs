@@ -13,33 +13,20 @@ namespace ArmyBasePRG282
 {
     class Datahandler
     {
-<<<<<<< HEAD
-        // Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\werne\\source\\repos\\ArmyBasePRG282\\ArmyBasePRG282\\dbArmy.mdf;Integrated Security=True  
-        SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\werne\\source\\repos\\ArmyBasePRG282\\ArmyBasePRG282\\dbArmy.mdf;Integrated Security=True");
-        public List<Plane> GetPlanes()
-        {
-            List<Plane> thislist = new List<Plane>();
-
-=======
 
         SqlConnection conn = new SqlConnection("Data Source=ASPIRE-E1-510-S;Initial Catalog=dbArmy;Integrated Security=True");
        public List<Plane> GetPlanes()
         { List<Plane> thislist = new List<Plane>();
             
->>>>>>> ae9d2ec6669db31fa44b90774e82b051a2608ada
             string commandtext = "SELECT * From tblPlanes";
             SqlCommand cmd = new SqlCommand(commandtext, conn);
 
             SqlDataReader rdr = null;
             try
             {
-<<<<<<< HEAD
-                
-                rdr = cmd.ExecuteReader();
-=======
+
              conn.Open();  
                rdr = cmd.ExecuteReader();
->>>>>>> ae9d2ec6669db31fa44b90774e82b051a2608ada
                 while (rdr.Read())
                 {
                  thislist.Add(new Plane(rdr[0].ToString(),int.Parse(rdr[1].ToString()),int.Parse(rdr[2].ToString()),int.Parse(rdr[3].ToString()),int.Parse(rdr[4].ToString()),int.Parse(rdr[5].ToString()),int.Parse(rdr[6].ToString()),int.Parse(rdr[7].ToString()),int.Parse(rdr[8].ToString()),int.Parse(rdr[9].ToString()),int.Parse(rdr[10].ToString())));
