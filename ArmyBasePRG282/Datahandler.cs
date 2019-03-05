@@ -24,7 +24,7 @@ namespace ArmyBasePRG282
             SqlDataReader rdr = null;
             try
             {
-                conn.Open();
+               
                rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
