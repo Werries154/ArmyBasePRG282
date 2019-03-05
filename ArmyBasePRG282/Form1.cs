@@ -12,6 +12,7 @@ namespace ArmyBasePRG282
 {
     public partial class StartForm : Form
     {
+        bool goingback = false;
         bool bremove = false;
         bool busy = false;
         List<PictureBox> EnemyBuildings = new List<PictureBox>();
@@ -21,8 +22,10 @@ namespace ArmyBasePRG282
         List<PictureBox> tankobstacles = new List<PictureBox>();
         List<PictureBox> allobstacles = new List<PictureBox>();
         List<Plane> allplanes = new List<Plane>();
+        List<Obstacle> allObstacles = new List<Obstacle>();
+        List<EnemyBuilding> AllEnemyBuildings = new List<EnemyBuilding>();
         Datahandler dh = new Datahandler();
-
+        Plane chosenplane = new Plane();
 
         public StartForm()
         {
@@ -33,11 +36,9 @@ namespace ArmyBasePRG282
         {
             InitializePboxes();
             allplanes = dh.GetPlanes();
-            foreach (Plane thisplane in allplanes)
-            {
-                MessageBox.Show(thisplane.ToString());
-            }
-            pbArmory.Visible = false;
+            allObstacles = dh.GetObstacles();
+            AllEnemyBuildings = dh.GetBuildings();
+
 
         }
 
@@ -126,7 +127,7 @@ namespace ArmyBasePRG282
                 else
                 {
                     throw new CustomException("Only 1 scout can be placed at a time");
-                    
+
                 }
             }
             catch (CustomException ce)
@@ -134,7 +135,7 @@ namespace ArmyBasePRG282
 
                 MessageBox.Show(ce.Message, "Placement error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            
+
 
         }
 
@@ -306,7 +307,7 @@ namespace ArmyBasePRG282
 
                 MessageBox.Show(ce.Message, "Number of sniper obstacles to be placed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-           
+
         }
 
         private void addAAToolStripMenuItem_Click(object sender, EventArgs e)
@@ -413,10 +414,21 @@ namespace ArmyBasePRG282
 
         private void pbPlane_Move(object sender, EventArgs e)
         {
+            pbBarracks.Refresh();
+            pbCommstower.Refresh();
+            pbAircrafthangar.Refresh();
+            pbArmory.Refresh();
+            pbDiningarea.Refresh();
+            pbGym.Refresh();
+            pbHeadquarters.Refresh();
+            pbMedbay.Refresh();
+            pbAircraftrunway.Refresh();
+            pbVehiclebay.Refresh();
             if (!busy)
             {
                 foreach (PictureBox obstacle in obstaclestoavoid)
                 {
+                    
                     if ((pbPlane.Right > obstacle.Left - 40 && pbPlane.Right < obstacle.Right + 40) && (pbPlane.Top > obstacle.Bottom - 40 && pbPlane.Top < obstacle.Top + 40))
                     {
                         busy = true;
@@ -426,27 +438,36 @@ namespace ArmyBasePRG282
                         }
                         for (int j = 0; j < Scout1.Width + pbPlane.Width + 80; j++)
                         {
-                            pbPlane.Left += 1;
+                            if (!goingback)
+                            {
+                                pbPlane.Left += 1;
+                            }
+                            else
+                            {
+                                pbPlane.Left -= 1;
+                            }
+                            
                         }
                         busy = false;
                     }
                 }
-               
+
             }
         }
         private void MoveNext()
         {
-            if (!busy) { 
-            foreach (PictureBox pbinstance in allobstacles)
+            if (!busy)
             {
-                if (pbinstance.Visible)
+                foreach (PictureBox pbinstance in allobstacles)
                 {
-                    obstaclestoavoid.Add(pbinstance);
+                    if (pbinstance.Visible)
+                    {
+                        obstaclestoavoid.Add(pbinstance);
+                    }
                 }
-            }
-            foreach (PictureBox building in EnemyBuildings)
-            {
-                bool barrived = false;
+                foreach (PictureBox building in EnemyBuildings)
+                {
+                    bool barrived = false;
                     while (!barrived)
                     {
                         if (pbPlane.Left > building.Left)
@@ -477,6 +498,7 @@ namespace ArmyBasePRG282
                     }
                 }
             }
+            GoBack();
         }
 
         private void f15JetcraftToolStripMenuItem_Click(object sender, EventArgs e)
@@ -503,8 +525,49 @@ namespace ArmyBasePRG282
         {
             pbPlane.Image = ArmyBasePRG282.Properties.Resources.giphyv;
         }
+        private void GoBack()
+        {
+            goingback = true;
+            if (!busy)
+            {
+                    bool barrived = false;
+                    while (!barrived)
+                    {
+                        if (pbPlane.Left > 25)
+                        {
+                            pbPlane.Left -= 1;
+                        }
+                        if (pbPlane.Left < 25)
+                        {
+                            pbPlane.Left += 1;
+                        }
+                        if (pbPlane.Top > 300)
+                        {
+                            pbPlane.Top -= 1;
+
+
+                        }
+                        if (pbPlane.Top < 300)
+                        {
+
+                            pbPlane.Top += 1;
+
+                        }
+
+                        if (pbPlane.Top == 400 && pbPlane.Left == 20)
+                        {
+                            barrived = true;
+                        }
+
+                    }
+
+
+                }
+
+            }
+        }
     }
-}
+
 
 
 

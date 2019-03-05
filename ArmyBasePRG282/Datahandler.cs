@@ -51,9 +51,71 @@ namespace ArmyBasePRG282
                 {
                     rdr.Close();
                 }
+                if(conn != null)
+{
+                    conn.Close();
+}                               
             }
             return thislist;
         }
-    }
+        public List<Obstacle> GetObstacles()
+{
+            List<Obstacle> thislist = new List<Obstacle>();
+             string commandtext = "SELECT * From tblObstacles";
+            SqlCommand cmd = new SqlCommand(commandtext, conn);
+            
+            SqlDataReader rdr = null;
+            try
+            {
+             conn.Open();  
+               rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                 thislist.Add(new Obstacle(rdr[0].ToString(),int.Parse(rdr[1].ToString()),int.Parse(rdr[2].ToString()),int.Parse(rdr[3].ToString())));
+                }
+            }
+            finally
+            {
+                if(rdr != null)
+                {
+                    rdr.Close();
+                }
+                       if(conn != null)
+{
+                    conn.Close();
+}               
+            }
+            return thislist;
 }
+        public List<EnemyBuilding> GetBuildings()
+{
+                    List<EnemyBuilding> thislist = new List<EnemyBuilding>();
+             string commandtext = "SELECT * From tblBuildings";
+            SqlCommand cmd = new SqlCommand(commandtext, conn);
+            
+            SqlDataReader rdr = null;
+            try
+            {
+             conn.Open();  
+               rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                 thislist.Add(new EnemyBuilding(rdr[0].ToString(),int.Parse(rdr[1].ToString()),int.Parse(rdr[2].ToString())));
+                }
+            }
+            finally
+            {
+                if(rdr != null)
+                {
+                    rdr.Close();
+                }
+                       if(conn != null)
+{
+                    conn.Close();
+}               
+            }
+            return thislist;
+}               
+}
+   }
    
