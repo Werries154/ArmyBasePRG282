@@ -516,22 +516,52 @@ namespace ArmyBasePRG282
                         }
                     }
                     //Here is the code for dodging
-                    if (pbPlane.Bounds.IntersectsWith(pbAircrafthangar.Bounds) || pbPlane.Bounds.IntersectsWith(pbAircraftrunway.Bounds) || pbPlane.Bounds.IntersectsWith(pbArmory.Bounds) || pbPlane.Bounds.IntersectsWith(pbBarracks.Bounds) || pbPlane.Bounds.IntersectsWith(pbCommstower.Bounds))
+                    if (pbPlane.Bounds.IntersectsWith(pbAircrafthangar.Bounds))
                     {
                         pbAircrafthangar.Visible = true;
+                    }
+                    if (pbPlane.Bounds.IntersectsWith(pbAircraftrunway.Bounds))
+                        {
                         pbAircraftrunway.Visible = true;
+
+                    }
+                    if (pbPlane.Bounds.IntersectsWith(pbArmory.Bounds))
+                    {
                         pbArmory.Visible = true;
+                    }
+                    if (pbPlane.Bounds.IntersectsWith(pbBarracks.Bounds))
+                    {
                         pbBarracks.Visible = true;
+                    }
+                    if (pbPlane.Bounds.IntersectsWith(pbCommstower.Bounds))
+                    {
                         pbCommstower.Visible = true;
                     }
-                    if (pbPlane.Bounds.IntersectsWith(pbDiningarea.Bounds) || pbPlane.Bounds.IntersectsWith(pbGym.Bounds) || pbPlane.Bounds.IntersectsWith(pbHeadquarters.Bounds) || pbPlane.Bounds.IntersectsWith(pbMedbay.Bounds) || pbPlane.Bounds.IntersectsWith(pbVehiclebay.Bounds))
+                       
+                    if (pbPlane.Bounds.IntersectsWith(pbDiningarea.Bounds))
                     {
                         pbDiningarea.Visible = true;
-                        pbGym.Visible = true;
-                        pbHeadquarters.Visible = true;
-                        pbMedbay.Visible = true;
-                        pbVehiclebay.Visible = true;
                     }
+                    if (pbPlane.Bounds.IntersectsWith(pbGym.Bounds))
+                    {
+                        pbGym.Visible = true;
+                    }
+                    if (pbPlane.Bounds.IntersectsWith(pbHeadquarters.Bounds))
+                    {
+                        pbHeadquarters.Visible = true;
+                    }
+                    if (pbPlane.Bounds.IntersectsWith(pbMedbay.Bounds))
+                    {
+                        pbMedbay.Visible = true;
+                    }
+                     if(pbPlane.Bounds.IntersectsWith(pbVehiclebay.Bounds))
+                    {
+                        pbVehiclebay.Visible = true;
+                    } 
+                       
+                       
+                        
+                    
                 }
             }
             GoBack();
